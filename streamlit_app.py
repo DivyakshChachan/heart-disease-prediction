@@ -96,7 +96,8 @@ elif page == "Predict":
                 try:
                     # Get background data for explainer
                     if df is not None:
-                        background_data = df.sample(min(100, len(df)), random_state=42)
+                        # Remove target column from background data to match input features
+                        background_data = df.drop(columns=['target']).sample(min(100, len(df)), random_state=42)
                         # Create explainer with background data
                         explainer = shap.Explainer(model.predict_proba, background_data)
                         shap_values = explainer(input_df)
