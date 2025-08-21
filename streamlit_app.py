@@ -102,16 +102,15 @@ elif page == "Predict":
                         explainer = shap.Explainer(model.predict_proba, background_data)
                         shap_values = explainer(input_df)
                         
-                        # Create waterfall plot
-                        fig, ax = plt.subplots(figsize=(10, 6))
-                        shap.plots.waterfall(shap_values[0], show=False, ax=ax)
+                        # Create waterfall plot - use correct SHAP syntax
+                        fig = shap.plots.waterfall(shap_values[0], show=False)
                         st.pyplot(fig)
                         plt.close(fig)
                     else:
                         st.warning("Background data needed for SHAP explanations. Load dataset first.")
                 except Exception as e:
                     st.error(f"SHAP explanation failed: {str(e)}")
-                    st.info("Try using the Data Insights page to load the dataset first.")
+                    st.info("Try using the Data Insights page to load dataset first, or check SHAP version compatibility.")
 
 # Compare Page
 elif page == "Compare":
