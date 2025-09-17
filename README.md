@@ -1,6 +1,6 @@
 # Heart Disease Risk Prediction
 
-End-to-end ML pipeline with explainability and Streamlit app.
+End-to-end ML pipeline implementing Logistic Regression XGBoost.
 
 ## Setup
 
@@ -12,7 +12,7 @@ pip install -r requirements.txt
 
 ## Data
 
-The project expects `data/heart_disease_dataset.csv` (UCI Heart Disease 303 rows). If missing, the notebooks can download or prompt instructions.
+The project expects `data/heart_disease_dataset.csv` (UCI Heart Disease). If missing, the notebooks can download or prompt instructions.
 
 ## Run Streamlit
 
